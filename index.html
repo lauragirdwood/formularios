@@ -7,22 +7,35 @@
     <title>Formularios</title>
 </head>
 <body>
-    <form action="">
+    <h1>Validação de Formulário</h1>
+    <!--#01a e #01b Validação dos campos do form-->
+    <form action="#" name="formulario" method="get" onsubmit="return validaFormulario(this);">
 
-    <label for="nome">Digite seu nome </label><br>
-        <input type="text" name="nome" value="" id="idNome"> <br>
-    
-    <label for="idade">Digite sua idade </label><br>
-        <input type="number" name="idade" value="" id="idIdade"> <br>
-    
-    <label for="senha">Digite sua senha </label><br>
-        <input type="text" name="senha" value="" id="idSenha"> <br>
-    
-    <label for="senha02">Digite novamente a sua senha </label><br>
-        <input type="text" name="senha02" value="" id="idSenha02"> <br>
-    <br>
-    <button>Enviar</button>
+        <label for="nome">Digite seu nome </label>
+        <p><input type="text" name="nome" placeholder="Digite seu nome" value=""></p>
+        
+        <label for="idade">Digite sua idade </label>
+        <p><input type="number" name="idade" value="" placeholder="Digite sua idade"></p>
+        
+        <label for="senha">Digite sua senha </label>
+        <p><input type="password" name="senha" value=""></p> 
+        
+        <label for="senha02">Digite novamente a sua senha </label>
+        <p><input type="password" name="senha02" value=""></p>
 
+        <button>Enviar</button>
     </form>
+
+    <!--#02 pegar conteudo enviado pelo form e armazenar numa string via js-->
+    <form id="form1" onsubmit="getFormvalue(this)">
+        <label for="nome1">Primeiro nome:</label>
+        <p><input type="text" name="nome1" value="Neymar" id="nome1" required></p>
+        <label for="sobrenome"></label>
+        <p><input type="text" name="sobrenome" value="Jr" id="sobrenome" required></p>
+        
+        <button>Enviar</button>
+    </form>
+
+    <script src="asssets/js/script.js"></script>
 </body>
 </html>
