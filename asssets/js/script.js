@@ -40,12 +40,58 @@ formulario.onsubmit = function() {
 }
 
    //#02 pegar conteudo enviado pelo form e armazenar numa string via js
-    var forminho = document.querySelector("#form1");
+    //var forminho = document.querySelector("#form1");
     
     function getFormvalue(forminho) {  
-        return alert(forminho.nome1.value + " " + forminho.sobrenome.value);
+        let nomeCompleto = forminho.nome1.value + " " + forminho.sobrenome.value;        
+        return alert(nomeCompleto);
    }
 
+   //#03 Tirar atributo do form JS "required" 
+   // Form é enviado mesmo sem value nos campos.
+
+   //#03 Ocultar e mostrar <ul> com dados inseridos no form
+   let cliqueOcultar = document.querySelector("#ocultar");
+   cliqueOcultar.onclick = function() {
+        alert("Ocultar");
+
+        let formulario = document.querySelector("#form1");
+        let lista = "<ul>";
+
+        for (let i = 0; i < formulario.elements.length; i++){
+            console.log(formulario.elements[i].value);
+
+            if(formulario.elements[i].type == "text"){
+                lista += "<li>Nome: " + formulario.elements[i].name + 
+                " - Valor: " + formulario.elements[i].value + "</li>";
+            }            
+        }
+
+        lista += "</ul>";
+        formulario.innerHTML = lista;   
+   }
+   
+   //#03
+
+   function mudaCor() {
+       let corpo = document.querySelector("body");
+
+       if (document.getElementById("feminino").checked == true) {
+           corpo.style.backgroundColor = "red";
+       } else if (document.getElementById("masculino").checked == true) {
+            corpo.style.backgroundColor = "green";
+       }
+   }
+
+
+  function outrosEspecifique() {
+      if (document.getElementById("outros").checked == true) {
+        document.getElementById("especifique").style.display = "inline";
+      } else {
+        document.getElementById("especifique").style.display = "none";
+      }
+  }
+   
 
 // function validaFormulario(formulario){
 
